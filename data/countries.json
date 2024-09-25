@@ -1,0 +1,353 @@
+[
+  {
+    "id": 1,
+    "country": "France",
+    "capital": "Paris",
+    "capital_difficulty": "easy",
+    "country_code": "FR"
+  },
+  {
+    "id": 2,
+    "country": "Germany",
+    "capital": "Berlin",
+    "capital_difficulty": "easy",
+    "country_code": "DE"
+  },
+  {
+    "id": 3,
+    "country": "Chad",
+    "capital": "N'Djamena",
+    "capital_difficulty": "hard",
+    "country_code": "TD"
+  },
+  {
+    "id": 4,
+    "country": "Lithuania",
+    "capital": "Vilnius",
+    "capital_difficulty": "medium",
+    "country_code": "LT"
+  },
+  {
+    "id": 5,
+    "country": "United States",
+    "capital": "Washington, D.C.",
+    "capital_difficulty": "easy",
+    "country_code": "US"
+  },
+  {
+    "id": 6,
+    "country": "Canada",
+    "capital": "Ottawa",
+    "capital_difficulty": "easy",
+    "country_code": "CA"
+  },
+  {
+    "id": 7,
+    "country": "Brazil",
+    "capital": "Brasília",
+    "capital_difficulty": "easy",
+    "country_code": "BR"
+  },
+  {
+    "id": 8,
+    "country": "Australia",
+    "capital": "Canberra",
+    "capital_difficulty": "medium",
+    "country_code": "AU"
+  },
+  {
+    "id": 9,
+    "country": "Argentina",
+    "capital": "Buenos Aires",
+    "capital_difficulty": "easy",
+    "country_code": "AR"
+  },
+  {
+    "id": 10,
+    "country": "Japan",
+    "capital": "Tokyo",
+    "capital_difficulty": "easy",
+    "country_code": "JP"
+  },
+  {
+    "id": 11,
+    "country": "United Kingdom",
+    "capital": "London",
+    "capital_difficulty": "easy",
+    "country_code": "GB"
+  },
+  {
+    "id": 12,
+    "country": "Italy",
+    "capital": "Rome",
+    "capital_difficulty": "easy",
+    "country_code": "IT"
+  },
+  {
+    "id": 13,
+    "country": "South Africa",
+    "capital": "Pretoria",
+    "capital_difficulty": "medium",
+    "country_code": "ZA"
+  },
+  {
+    "id": 14,
+    "country": "Mexico",
+    "capital": "Mexico City",
+    "capital_difficulty": "easy",
+    "country_code": "MX"
+  },
+  {
+    "id": 15,
+    "country": "India",
+    "capital": "New Delhi",
+    "capital_difficulty": "easy",
+    "country_code": "IN"
+  },
+  {
+    "id": 16,
+    "country": "Russia",
+    "capital": "Moscow",
+    "capital_difficulty": "easy",
+    "country_code": "RU"
+  },
+  {
+    "id": 17,
+    "country": "Egypt",
+    "capital": "Cairo",
+    "capital_difficulty": "medium",
+    "country_code": "EG"
+  },
+  {
+    "id": 18,
+    "country": "Kenya",
+    "capital": "Nairobi",
+    "capital_difficulty": "medium",
+    "country_code": "KE"
+  },
+  {
+    "id": 19,
+    "country": "Morocco",
+    "capital": "Rabat",
+    "capital_difficulty": "medium",
+    "country_code": "MA"
+  },
+  {
+    "id": 20,
+    "country": "Turkey",
+    "capital": "Ankara",
+    "capital_difficulty": "medium",
+    "country_code": "TR"
+  },
+  {
+    "id": 21,
+    "country": "Portugal",
+    "capital": "Lisbon",
+    "capital_difficulty": "easy",
+    "country_code": "PT"
+  },
+  {
+    "id": 22,
+    "country": "Sweden",
+    "capital": "Stockholm",
+    "capital_difficulty": "medium",
+    "country_code": "SE"
+  },
+  {
+    "id": 23,
+    "country": "Greece",
+    "capital": "Athens",
+    "capital_difficulty": "easy",
+    "country_code": "GR"
+  },
+  {
+    "id": 24,
+    "country": "Denmark",
+    "capital": "Copenhagen",
+    "capital_difficulty": "medium",
+    "country_code": "DK"
+  },
+  {
+    "id": 25,
+    "country": "Norway",
+    "capital": "Oslo",
+    "capital_difficulty": "medium",
+    "country_code": "NO"
+  },
+  {
+    "id": 26,
+    "country": "Iceland",
+    "capital": "Reykjavík",
+    "capital_difficulty": "medium",
+    "country_code": "IS"
+  },
+  {
+    "id": 27,
+    "country": "Nigeria",
+    "capital": "Abuja",
+    "capital_difficulty": "medium",
+    "country_code": "NG"
+  },
+  {
+    "id": 28,
+    "country": "Thailand",
+    "capital": "Bangkok",
+    "capital_difficulty": "easy",
+    "country_code": "TH"
+  },
+  {
+    "id": 29,
+    "country": "South Korea",
+    "capital": "Seoul",
+    "capital_difficulty": "easy",
+    "country_code": "KR"
+  },
+  {
+    "id": 30,
+    "country": "New Zealand",
+    "capital": "Wellington",
+    "capital_difficulty": "medium",
+    "country_code": "NZ"
+  },
+  {
+    "id": 31,
+    "country": "Peru",
+    "capital": "Lima",
+    "capital_difficulty": "medium",
+    "country_code": "PE"
+  },
+  {
+    "id": 32,
+    "country": "Cuba",
+    "capital": "Havana",
+    "capital_difficulty": "medium",
+    "country_code": "CU"
+  },
+  {
+    "id": 33,
+    "country": "Colombia",
+    "capital": "Bogotá",
+    "capital_difficulty": "medium",
+    "country_code": "CO"
+  },
+  {
+    "id": 34,
+    "country": "Kazakhstan",
+    "capital": "Astana",
+    "capital_difficulty": "hard",
+    "country_code": "KZ"
+  },
+  {
+    "id": 35,
+    "country": "Uzbekistan",
+    "capital": "Tashkent",
+    "capital_difficulty": "hard",
+    "country_code": "UZ"
+  },
+  {
+    "id": 36,
+    "country": "Afghanistan",
+    "capital": "Kabul",
+    "capital_difficulty": "hard",
+    "country_code": "AF"
+  },
+  {
+    "id": 37,
+    "country": "Myanmar",
+    "capital": "Naypyidaw",
+    "capital_difficulty": "hard",
+    "country_code": "MM"
+  },
+  {
+    "id": 38,
+    "country": "Mongolia",
+    "capital": "Ulaanbaatar",
+    "capital_difficulty": "hard",
+    "country_code": "MN"
+  },
+  {
+    "id": 39,
+    "country": "Laos",
+    "capital": "Vientiane",
+    "capital_difficulty": "hard",
+    "country_code": "LA"
+  },
+  {
+    "id": 40,
+    "country": "Bhutan",
+    "capital": "Thimphu",
+    "capital_difficulty": "hard",
+    "country_code": "BT"
+  },
+  {
+    "id": 41,
+    "country": "Maldives",
+    "capital": "Malé",
+    "capital_difficulty": "hard",
+    "country_code": "MV"
+  },
+  {
+    "id": 42,
+    "country": "Guinea",
+    "capital": "Conakry",
+    "capital_difficulty": "hard",
+    "country_code": "GN"
+  },
+  {
+    "id": 43,
+    "country": "Tajikistan",
+    "capital": "Dushanbe",
+    "capital_difficulty": "hard",
+    "country_code": "TJ"
+  },
+  {
+    "id": 44,
+    "country": "Kyrgyzstan",
+    "capital": "Bishkek",
+    "capital_difficulty": "hard",
+    "country_code": "KG"
+  },
+  {
+    "id": 45,
+    "country": "Ethiopia",
+    "capital": "Addis Ababa",
+    "capital_difficulty": "medium",
+    "country_code": "ET"
+  },
+  {
+    "id": 46,
+    "country": "Algeria",
+    "capital": "Algiers",
+    "capital_difficulty": "medium",
+    "country_code": "DZ"
+  },
+  {
+    "id": 47,
+    "country": "Belize",
+    "capital": "Belmopan",
+    "capital_difficulty": "hard",
+    "country_code": "BZ"
+  },
+  {
+    "id": 48,
+    "country": "Comoros",
+    "capital": "Moroni",
+    "capital_difficulty": "hard",
+    "country_code": "KM"
+  },
+  {
+    "id": 49,
+    "country": "Suriname",
+    "capital": "Paramaribo",
+    "capital_difficulty": "medium",
+    "country_code": "SR"
+  },
+  {
+    "id": 50,
+    "country": "Seychelles",
+    "capital": "Victoria",
+    "capital_difficulty": "hard",
+    "country_code": "SC"
+  }
+]
+

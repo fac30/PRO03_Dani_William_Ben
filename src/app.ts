@@ -1,0 +1,30 @@
+import express from 'express';
+import bodyParser from 'body-parser';
+import quizRoutes from './routes/quizRoutes';
+import dotenv from 'dotenv';
+import path from 'path';
+
+dotenv.config(); 
+
+const PORT = process.env.PORT || 5000; 
+
+const app = express();
+
+// CHECK
+app.use(bodyParser.json());
+
+app.use('/api/quiz', quizRoutes);
+// Loading assets
+app.use(express.static(path.join(__dirname, '../frontend')));
+
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`)
+})
+
+// fix for cors?
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
+
+export default app;
