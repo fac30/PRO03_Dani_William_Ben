@@ -1,0 +1,51 @@
+id,country,capital,capital_difficulty,country_code
+1,France,Paris,easy,FR
+2,Germany,Berlin,easy,DE
+3,Chad,N'Djamena,hard,TD
+4,Lithuania,Vilnius,medium,LT
+5,United States,"Washington, D.C.",easy,US
+6,Canada,Ottawa,easy,CA
+7,Brazil,Brasília,easy,BR
+8,Australia,Canberra,medium,AU
+9,Argentina,Buenos Aires,easy,AR
+10,Japan,Tokyo,easy,JP
+11,United Kingdom,London,easy,GB
+12,Italy,Rome,easy,IT
+13,South Africa,Pretoria,medium,ZA
+14,Mexico,Mexico City,easy,MX
+15,India,New Delhi,easy,IN
+16,Russia,Moscow,easy,RU
+17,Egypt,Cairo,medium,EG
+18,Kenya,Nairobi,medium,KE
+19,Morocco,Rabat,medium,MA
+20,Turkey,Ankara,medium,TR
+21,Portugal,Lisbon,easy,PT
+22,Sweden,Stockholm,medium,SE
+23,Greece,Athens,easy,GR
+24,Denmark,Copenhagen,medium,DK
+25,Norway,Oslo,medium,NO
+26,Iceland,Reykjavík,medium,IS
+27,Nigeria,Abuja,medium,NG
+28,Thailand,Bangkok,easy,TH
+29,South Korea,Seoul,easy,KR
+30,New Zealand,Wellington,medium,NZ
+31,Peru,Lima,medium,PE
+32,Cuba,Havana,medium,CU
+33,Colombia,Bogotá,medium,CO
+34,Kazakhstan,Astana,hard,KZ
+35,Uzbekistan,Tashkent,hard,UZ
+36,Afghanistan,Kabul,hard,AF
+37,Myanmar,Naypyidaw,hard,MM
+38,Mongolia,Ulaanbaatar,hard,MN
+39,Laos,Vientiane,hard,LA
+40,Bhutan,Thimphu,hard,BT
+41,Maldives,Malé,hard,MV
+42,Guinea,Conakry,hard,GN
+43,Tajikistan,Dushanbe,hard,TJ
+44,Kyrgyzstan,Bishkek,hard,KG
+45,Ethiopia,Addis Ababa,medium,ET
+46,Algeria,Algiers,medium,DZ
+47,Belize,Belmopan,hard,BZ
+48,Comoros,Moroni,hard,KM
+49,Suriname,Paramaribo,medium,SR
+50,Seychelles,Victoria,hard,SC
