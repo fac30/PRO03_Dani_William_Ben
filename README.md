@@ -2,8 +2,9 @@
 
 ## Quiz Application
 
-### Setup 
-Copy `.env.example` to `.env` and complete 
+### Setup
+
+Copy `.env.example` to `.env` and complete
 
 ### Commands
 
@@ -14,21 +15,27 @@ npx ts-node src/index.ts
 ```
 
 #### Installing Packages
-Don't forget to add types. Check respective docs. E.g.: 
+
+Don't forget to add types. Check respective docs. E.g.:
+
 ```ts
 npm install dotenv node-fetch
 npm install @types/node-fetch --save-dev
 ```
 
 #### Testing: Jest
-* Add tests to /src/tests
-* file name {test_object}.test.ts
+
+- Add tests to /src/tests
+- file name {test_object}.test.ts
+
 ```ts
 npm test
 ```
+
 [ts-jest documentation](https://www.npmjs.com/package/ts-jest)
 
 #### Linter: Prettier
+
 ```ts
 npm run lint
 npm run formatter
@@ -36,8 +43,7 @@ npm run formatter
 
 ## API
 
-country code:  ISO 3166-1 alpha-2
-
+country code: ISO 3166-1 alpha-2
 
 ### Example payload
 
@@ -67,3 +73,96 @@ country code:  ISO 3166-1 alpha-2
 }
 ```
 
+### setup connection to local mysql database
+
+1.1. Install MySQL on Your System
+
+- for Ubutu/Debian
+
+```
+sudo apt update
+sudo apt install mysql-server
+
+```
+
+- for windows or mac: download and install mysql from the (MYSQL website)[https://dev.mysql.com/downloads/installer/]
+
+  1.2. Verify the Installation
+
+After installation, verify that MySQL is running by checking the service status: Linux:
+
+```
+bash
+
+sudo systemctl status mysql
+```
+
+Windows: Open MySQL Workbench or check the MySQL service in Task Manager.
+
+Mac: Use Homebrew or the System Preferences panel if you installed MySQL using the .dmg installer.
+
+2.1 Login to your MYSQL locally.
+
+```
+mysql -u root -p
+```
+
+(you may change the root user to something else but you must remember to change it in the database.ts file as well)
+
+(-p will prompt you for a password, make sure you add this to the .env file too labelled, DB_PASSWORD)
+
+2.2 Create the databse called data (if it does not exist yet).
+
+```
+CREATE DATABASE data
+```
+
+Switch to the database.
+
+```
+USE data
+```
+
+2.3. Load the schema.sql File
+
+Next, use the source command to load the schema.sql file into the data database. This file will automatically create all necessary tables and populate them with data.
+
+```
+SOURCE /path/to/schema.sql;
+
+```
+
+2.4. Verify the Database Structure
+
+Once the schema.sql file has been successfully loaded, you can verify the structure by listing the tables:
+
+```
+SHOW TABLES
+```
+
+To inspect the contents of a table:
+
+```
+SELECT * FROM table_name;
+```
+
+Once, the database is loaded and verified, you may exit MYSQL:
+
+```
+exit
+```
+
+3. Configure the database.ts file
+   To make sure you are able to connect to your database, make sure you add to your .env file:
+
+```
+DB_HOST= ip address (127.0.0.1 for local host)
+DB_PASSWORD= your password to login to mysql
+DB_PORT= port number (default 3306)
+```
+
+If you're successful you'll be able to access the data from the database eg:
+
+```
+http://localhost:5000/countries
+```
