@@ -1,9 +1,10 @@
 import fs from 'fs';
 import path from 'path';
+import { db } from '../db_config/database';
 
 /// WILLIAM -- DATA IMPORT E.g. countries object
-const countriesFilePath = path.join(__dirname, '../../data/countries.json');
-const countriesData = JSON.parse(fs.readFileSync(countriesFilePath, 'utf-8'));
+// const countriesFilePath = path.join(__dirname, '../../data/countries.json');
+// const countriesData = JSON.parse(fs.readFileSync(countriesFilePath, 'utf-8'));
 
 interface Question {
   questionId: string;
@@ -15,31 +16,34 @@ interface Question {
 }
 
 let quizzes: { [key: string]: Question[] } = {}; // WILLIAM -- STORE IN DB
-// Quiz Table: quizId, created_at
-// Question Table: questionId, quizId, questionText, options, etc.
 
-export const generateQuiz = (difficulty: string, type: string, numberOfQuestions: number) => {
-  const filteredCountries = countriesData.filter((country: any) => country.capital_difficulty === difficulty);
+export const generateQuiz = async (difficulty: string, type: string, numberOfQuestions: number) => {
+  try {
+    const [countries] = await db.query('SELECT * FROM countries WHERE capital_difficulty = ?', [difficulty]);
+    const countryArray = countries as Array<{ country: string, capital: string, capital_difficulty: string, country_code: string }>;
+    const selectedQuestions = countryArray
+      .sort(() => 0.5 - Math.random()) // cool randomization script
+      .slice(0, numberOfQuestions)       
+      .map((country: any, index: number) => {
+        const options = generateOptions(country.capital, countryArray);
+        return {
+          questionId: `${index + 1}`,
+          questionText: `What is the capital of ${country.country}?`,
+          options,
+          correctAnswer: country.capital,
+          difficulty: country.capital_difficulty,
+          type: 'country',
+        };
+      });
 
-  const selectedQuestions = filteredCountries
-    .sort(() => 0.5 - Math.random()) // cool way to randomize 
-    .slice(0, numberOfQuestions)     // Select required number of questions
-    .map((country: any, index: number) => {
-      const options = generateOptions(country.capital, filteredCountries);
-      return {
-        questionId: `${index + 1}`,
-        questionText: `What is the capital of ${country.country}?`,
-        options,
-        correctAnswer: country.capital,
-        difficulty: country.capital_difficulty,
-        type: 'country',
-      };
-    });
+    const quizId = Math.random().toString(36).substring(7);
+    quizzes[quizId] = selectedQuestions;
 
-  const quizId = Math.random().toString(36).substring(7);
-  quizzes[quizId] = selectedQuestions;
-
-  return { quizId, questions: selectedQuestions };
+    return { quizId, questions: selectedQuestions };
+  } catch (error) {
+    console.error('Error generating quiz:', error);
+    throw new Error('Failed to generate quiz');
+  }
 };
 
 const generateOptions = (correctAnswer: string, countries: any[]): string[] => {
@@ -66,4 +70,7 @@ export const checkAnswer = (quizId: string, questionId: string, selectedAnswer: 
   const isCorrect = question.correctAnswer === selectedAnswer;
   return { questionId, isCorrect, correctAnswer: question.correctAnswer };
 };
+
+
+
 
