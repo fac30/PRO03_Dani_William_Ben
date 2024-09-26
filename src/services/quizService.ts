@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import { db } from '../db_config/database';
-
+import axios from 'axios';
+//
 /// WILLIAM -- DATA IMPORT E.g. countries object
 // const countriesFilePath = path.join(__dirname, '../../data/countries.json');
 // const countriesData = JSON.parse(fs.readFileSync(countriesFilePath, 'utf-8'));
@@ -19,8 +20,10 @@ let quizzes: { [key: string]: Question[] } = {}; // WILLIAM -- STORE IN DB
 
 export const generateQuiz = async (difficulty: string, type: string, numberOfQuestions: number) => {
   try {
-    const [countries] = await db.query('SELECT * FROM countries WHERE capital_difficulty = ?', [difficulty]);
-    const countryArray = countries as Array<{ country: string, capital: string, capital_difficulty: string, country_code: string }>;
+    // const [countries] = await db.query('SELECT * FROM countries WHERE capital_difficulty = ?', [difficulty]);
+    // const countryArray = countries as Array<{ country: string, capital: string, capital_difficulty: string, country_code: string }>;
+    const response = await fetch(`http://localhost:5000/countries?capital_difficulty=${difficulty}`);
+    const countryArray = await response.json();
     const selectedQuestions = countryArray
       .sort(() => 0.5 - Math.random()) // cool randomization script
       .slice(0, numberOfQuestions)       
