@@ -25,9 +25,9 @@ app.use('/countries', countryRoutes);
 // Loading assets
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-app.listen(PORT, () => {
+/* app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
-});
+}); */
 
 // fix for cors?
 app.get('*', (req, res) => {
