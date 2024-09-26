@@ -166,3 +166,18 @@ If you're successful you'll be able to access the data from the database eg:
 ```
 http://localhost:5000/countries
 ```
+
+## Logging
+
+Enable app.use(logger); in app.ts to run console log of requests made. 
+
+
+## Express Notes: 
+
+#### Controllers
+
+In express, we define routers which map URL paths to functions that handle the requests. In this project, see src/routes. 
+
+Note that when you define a route in Express, it uses the existing route context. In src/app.ts we define e.g. app.use("/api/quiz", quizRoutes). Then the route modules are automatically resolved relative to the base path. This provides some potentially useful separation of concerns. 
+
+A Controller is then the container for these functions which implement the logic for these routes. See src/controllers

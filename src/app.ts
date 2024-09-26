@@ -4,12 +4,18 @@ import quizRoutes from './routes/quizRoutes';
 import countryRoutes from './routes/countryRoutes';
 import dotenv from 'dotenv';
 import path from 'path';
-
+import { Request, Response, NextFunction } from 'express';
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 
 const app = express();
+
+function logger(request: Request, response: Response, next: NextFunction) {
+  console.log(`${request.method} ${request.url}`);
+  next();
+}
+app.use(logger);
 
 // CHECK
 app.use(bodyParser.json());
