@@ -16,6 +16,13 @@ interface Question {
   type: string;
 }
 
+interface Country {
+  country: string;
+  capital: string;
+  capital_difficulty: string;
+  country_code: string;
+}
+
 let quizzes: { [key: string]: Question[] } = {}; // WILLIAM -- STORE IN DB
 
 export const generateQuiz = async (difficulty: string, type: string, numberOfQuestions: number) => {
@@ -23,7 +30,8 @@ export const generateQuiz = async (difficulty: string, type: string, numberOfQue
     // const [countries] = await db.query('SELECT * FROM countries WHERE capital_difficulty = ?', [difficulty]);
     // const countryArray = countries as Array<{ country: string, capital: string, capital_difficulty: string, country_code: string }>;
     const response = await fetch(`http://localhost:5000/countries?capital_difficulty=${difficulty}`);
-    const countryArray = await response.json();
+    const countryArray: Country[] = await response.json();
+    // const countryArray = await response.json();
     const selectedQuestions = countryArray
       .sort(() => 0.5 - Math.random()) // cool randomization script
       .slice(0, numberOfQuestions)       
