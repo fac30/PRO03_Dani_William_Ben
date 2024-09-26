@@ -57,7 +57,8 @@ export const generateQuiz = async (difficulty: string, type: string, numberOfQue
   }
 };
 
-const generateOptions = (correctAnswer: string, countries: any[]): string[] => {
+
+export const generateOptions = (correctAnswer: string, countries: any[]): string[] => {
   const wrongAnswers = countries
     .filter((country) => country.capital !== correctAnswer)
     .sort(() => 0.5 - Math.random())

@@ -180,4 +180,12 @@ In express, we define routers which map URL paths to functions that handle the r
 
 Note that when you define a route in Express, it uses the existing route context. In src/app.ts we define e.g. app.use("/api/quiz", quizRoutes). Then the route modules are automatically resolved relative to the base path. This provides some potentially useful separation of concerns. 
 
-A Controller is then the container for these functions which implement the logic for these routes. See src/controllers
+A Controller is then the container for calling the functions which implement the flow of the operations for these routes. See src/controllers
+
+A Service then contains the actual logic for those functions called by the Controller. See src/services
+
+#### Testing Architecture
+
+Unit tests aim to isolate individual functions and test their logic. They shouldn't depend on external systems or requests. For example, the unit test on generateOptions() in tests/quizService.test.ts. 
+
+Integration testing. Here we mock External requests, for example calls to the db api, but we allow internal functions to be called naturally. 
