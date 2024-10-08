@@ -27,15 +27,15 @@ let quizzes: { [key: string]: Question[] } = {}; // WILLIAM -- STORE IN DB
 
 export const generateQuiz = async (difficulty: string, type: string, numberOfQuestions: number) => {
   try {
-    // const [countries] = await db.query('SELECT * FROM countries WHERE capital_difficulty = ?', [difficulty]);
-    // const countryArray = countries as Array<{ country: string, capital: string, capital_difficulty: string, country_code: string }>;
+    // Fetching countries data based on difficulty
     const response = await fetch(`http://localhost:5000/countries?capital_difficulty=${difficulty}`);
     const countryArray: Country[] = await response.json();
-    // const countryArray = await response.json();
+
+    // Randomizing and selecting questions
     const selectedQuestions = countryArray
-      .sort(() => 0.5 - Math.random()) // cool randomization script
-      .slice(0, numberOfQuestions)       
-      .map((country: any, index: number) => {
+      .sort(() => 0.5 - Math.random())
+      .slice(0, numberOfQuestions)
+      .map((country: Country, index: number) => {
         const options = generateOptions(country.capital, countryArray);
         return {
           questionId: `${index + 1}`,
@@ -50,6 +50,7 @@ export const generateQuiz = async (difficulty: string, type: string, numberOfQue
     const quizId = Math.random().toString(36).substring(7);
     quizzes[quizId] = selectedQuestions;
 
+    // Return the quiz ID and questions for the frontend
     return { quizId, questions: selectedQuestions };
   } catch (error) {
     console.error('Error generating quiz:', error);
