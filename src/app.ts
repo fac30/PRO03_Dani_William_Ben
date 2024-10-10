@@ -14,11 +14,13 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const IS_PRODUCTION = process.env.IS_PRODUCTION === 'true';
 
-app.use(cors({
-  origin: 'http://localhost:5173',  
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type'],
-}));
+app.use(
+  cors({
+    origin: 'http://localhost:5173',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type'],
+  }),
+);
 
 app.use(bodyParser.json());
 
@@ -27,7 +29,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
-app.use('/api/quiz', quizRoutes); 
+app.use('/api/quiz', quizRoutes);
 app.use('/countries', countryRoutes);
 
 app.use(express.static(path.join(__dirname, '../frontend')));
@@ -41,4 +43,3 @@ http.createServer(app).listen(PORT, () => {
 });
 
 export default app;
-
