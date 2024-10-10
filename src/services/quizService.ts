@@ -1,7 +1,3 @@
-import fs from 'fs';
-import path from 'path';
-import { db } from '../db_config/database';
-import axios from 'axios';
 //
 /// WILLIAM -- DATA IMPORT E.g. countries object
 // const countriesFilePath = path.join(__dirname, '../../data/countries.json');
@@ -25,11 +21,21 @@ interface Country {
 
 let quizzes: { [key: string]: Question[] } = {}; // WILLIAM -- STORE IN DB
 
-export const generateQuiz = async (difficulty: string, type: string, numberOfQuestions: number) => {
+export const generateQuiz = async (
+  difficulty: string,
+  type: string,
+  numberOfQuestions: number,
+) => {
   try {
     // Fetching countries data based on difficulty
-    const response = await fetch(`http://localhost:5000/countries?capital_difficulty=${difficulty}`);
-    const countryArray: Country[] = await response.json();
+    const response = await fetch(
+      `http://localhost:5000/countries?capital_difficulty=${encodeURIComponent(difficulty)}`,
+    );
+
+    if (response.status) {
+    }
+
+    const countryArray = (await response.json()) as Country[];
 
     // Randomizing and selecting questions
     const selectedQuestions = countryArray
@@ -58,8 +64,10 @@ export const generateQuiz = async (difficulty: string, type: string, numberOfQue
   }
 };
 
-
-export const generateOptions = (correctAnswer: string, countries: any[]): string[] => {
+export const generateOptions = (
+  correctAnswer: string,
+  countries: any[],
+): string[] => {
   const wrongAnswers = countries
     .filter((country) => country.capital !== correctAnswer)
     .sort(() => 0.5 - Math.random())
@@ -69,7 +77,11 @@ export const generateOptions = (correctAnswer: string, countries: any[]): string
   return [...wrongAnswers, correctAnswer].sort(() => 0.5 - Math.random());
 };
 
-export const checkAnswer = (quizId: string, questionId: string, selectedAnswer: string) => {
+export const checkAnswer = (
+  quizId: string,
+  questionId: string,
+  selectedAnswer: string,
+) => {
   const quiz = quizzes[quizId];
   if (!quiz) {
     return { error: 'Quiz not found' };
@@ -83,7 +95,3 @@ export const checkAnswer = (quizId: string, questionId: string, selectedAnswer: 
   const isCorrect = question.correctAnswer === selectedAnswer;
   return { questionId, isCorrect, correctAnswer: question.correctAnswer };
 };
-
-
-
-
